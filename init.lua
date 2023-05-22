@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "dracula",
+  colorscheme = "astrodark",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -66,6 +66,11 @@ return {
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
+    change_detection = {
+      -- automatically check for config file changes and reload the ui
+      enabled = false,
+      notify = false, -- get a notification when changes are found
+    },
     performance = {
       rtp = {
         -- customize default disabled vim plugins
