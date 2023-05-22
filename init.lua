@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "dracula",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -30,11 +30,6 @@ return {
     config = {
       clangd = {
         capabilities = { offsetEncoding = "utf-8" }
-      },
-    },
-    ["server-settings"] = {
-      clangd = {
-        capabilities = { offsetEncoding = "utf-8" },
       },
     },
     -- customize lsp formatting options
