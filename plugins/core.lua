@@ -1,22 +1,35 @@
+local function make_header()
+  local tableTime = os.date("*t")
+  local datetime = os.date(" %Y-%m-%d   %H:%M:%S")
+  local hour = tableTime.hour
+  local greetingsTable = {
+    [1] = "  Sleep Well",
+    [2] = "  Good Morning",
+    [3] = "  Good Afternoon",
+    [4] = "  Good Evening",
+    [5] = "󰖔  Good Night",
+  }
+  local greetingIndex = 0
+  if hour == 23 or hour < 7 then
+    greetingIndex = 1
+  elseif hour < 12 then
+    greetingIndex = 2
+  elseif hour >= 12 and hour < 18 then
+    greetingIndex = 3
+  elseif hour >= 18 and hour < 21 then
+    greetingIndex = 4
+  elseif hour >= 21 then
+    greetingIndex = 5
+  end
+  return "\t" .. datetime .. "\t" .. greetingsTable[greetingIndex]
+end
 return {
   -- customize alpha options
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
-      }
+      local header = make_header()
+      opts.section.header.val = header
       return opts
     end,
   },
