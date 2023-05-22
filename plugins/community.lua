@@ -3,6 +3,5 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.colorscheme.dracula" },
   { import = "astrocommunity.bars-and-lines.heirline-vscode-winbar" },
-  { import = "astrocommunity.indent.indent-tools-nvim" },
-
+  { import = "astrocommunity.git.git-blame-nvim" },
 }
