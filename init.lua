@@ -16,6 +16,11 @@ return {
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     },
   },
+  plugins = {
+    init = {
+      ["lukas-reineke/indent-blankline.nvim"] = { disable = true },
+    }
+  },
 
   -- Set colorscheme to use
   colorscheme = "astrodark",
@@ -28,6 +33,9 @@ return {
 
   lsp = {
     config = {
+      setup_handlers = {
+        clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end
+      },
       clangd = {
         capabilities = { offsetEncoding = "utf-8" }
       },
@@ -62,7 +70,6 @@ return {
       "lua_ls"
     },
   },
-
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
