@@ -4,7 +4,8 @@ return {
     relativenumber = false, -- sets vim.opt.relativenumber
     number = true,          -- sets vim.opt.number
     spell = false,          -- sets vim.opt.spell
-    signcolumn = "auto",    -- sets vim.opt.signcolumn to auto
+    signcolumn = "no",      -- sets vim.opt.signcolumn to auto
+    foldcolumn = "0",
     wrap = false,           -- sets vim.opt.wrap
     tabstop = 4,
     shiftwidth = 4,
@@ -14,6 +15,10 @@ return {
     mouse = "",
     virtualedit = { 'block', 'onemore' },
     showtabline = 0, -- don't show tabline
+    foldmethod = "expr",
+    foldexpr = "nvim_treesitter#foldexpr()",
+    foldlevel = 99,
+    foldenable = false,
   },
   g = {
     mapleader = " ",                 -- sets vim.g.mapleader
