@@ -2,6 +2,8 @@ return {
   -- Add the community repository of plugin specifications
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.colorscheme.dracula" },
+  { import = "astrocommunity.colorscheme.monokai-pro" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.bars-and-lines.heirline-vscode-winbar" },
   { import = "astrocommunity.bars-and-lines.heirline-mode-text-statusline" },
   { import = "astrocommunity.pack.go" },
