@@ -10,6 +10,7 @@ return {
                 parameterNames = true,
                 rangeVariableTypes = true,
             },
+            semanticTokens = true,
         },
     },
 }
