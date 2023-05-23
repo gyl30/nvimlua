@@ -16,11 +16,6 @@ return {
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     },
   },
-  plugins = {
-    init = {
-      ["lukas-reineke/indent-blankline.nvim"] = { disable = true },
-    }
-  },
 
   -- Set colorscheme to use
   colorscheme = "astrodark",
