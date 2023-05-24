@@ -174,9 +174,9 @@ return {
   },
 
   -- Set colorscheme to use
-  --  colorscheme = "astrodark",
-  -- colorscheme = "catppuccin",
-  colorscheme = "sonokai",
+  colorscheme = "astrodark",
+  --colorscheme = "catppuccin",
+  -- colorscheme = "sonokai",
   lsp = {
     config = {
       setup_handlers = {
