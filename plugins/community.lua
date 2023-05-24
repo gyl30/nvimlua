@@ -10,5 +10,4 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.editing-support.nvim-ts-rainbow2" },
   { import = "astrocommunity.completion.codeium-vim" },
-  { import = "astrocommunity.git.git-blame-nvim" },
 }
