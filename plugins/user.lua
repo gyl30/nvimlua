@@ -17,9 +17,9 @@ return {
       ensure_installed = { "clangd" }, -- automatically install lsp
     },
   },
-  { "lvimuser/lsp-inlayhints.nvim", config = true },
+  { "lvimuser/lsp-inlayhints.nvim", enabled = false },
 
-  { "lukas-reineke/indent-blankline.nvim", enable = false },
+  { "lukas-reineke/indent-blankline.nvim", enabled = false },
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
