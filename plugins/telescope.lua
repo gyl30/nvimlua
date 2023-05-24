@@ -7,47 +7,33 @@ return {
   opts = function(_, opts)
     local actions = require "telescope.actions"
     return require("astronvim.utils").extend_tbl(opts, {
-      defaults = {
-        selection_caret = "  ",
-        layout_config = {
-          width = 0.90,
-          height = 0.85,
-          preview_cutoff = 120,
-          horizontal = {
-            preview_width = 0.6,
-          },
-          vertical = {
+      pickers = {
+        lsp_references = {
+          layout_strategy = "vertical",
+          show_line = false,
+          layout_config = {
+            prompt_position = "bottom",
             width = 0.9,
-            height = 0.95,
-            preview_height = 0.5,
-          },
-          flex = {
-            horizontal = {
-              preview_width = 0.9,
-            },
+            height = 0.9,
+            preview_cutoff = 1,
+            mirror = false,
           },
         },
-      },
-      mappings = {},
-      pickers = {
-        buffers = {
-          path_display = { "smart" },
-          mappings = {
-            i = {
-              ["<c-d>"] = actions.delete_buffer,
-              ["<Tab>"] = actions.select_default,
-            },
-            n = {
-              ["d"] = actions.delete_buffer,
-              ["<Tab>"] = actions.select_default,
-            },
+        live_grep = {
+          layout_strategy = "vertical",
+          layout_config = {
+            prompt_position = "bottom",
+            width = 0.9,
+            height = 0.9,
+            preview_cutoff = 1,
+            mirror = false,
           },
         },
       },
     })
   end,
   config = function(...)
-    require "plugins.configs.telescope"(...)
+    require "plugins.configs.telescope" (...)
     local telescope = require "telescope"
     telescope.load_extension "undo"
     telescope.load_extension "file_browser"
