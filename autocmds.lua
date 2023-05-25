@@ -1,4 +1,4 @@
 vim.cmd [[
-set signcolumn=yes
+set signcolumn=no
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]]
