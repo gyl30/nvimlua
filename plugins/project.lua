@@ -4,6 +4,7 @@ return {
         "nvim-telescope/telescope.nvim",
     },
 
+    event = "User AstroFile",
 
     config = function()
         require("project_nvim").setup {}
