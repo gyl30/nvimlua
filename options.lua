@@ -22,7 +22,7 @@ return {
         incsearch = true,
         ignorecase = true,
         autowrite = true,
-        confirm = true,
+        confirm = false,
         scrolloff = 15,
         virtualedit = { "block", "onemore" },
         showtabline = 2,
