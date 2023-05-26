@@ -6,7 +6,8 @@ return {
         spell = false,          -- sets vim.opt.spell
         signcolumn = "no",      -- sets vim.opt.signcolumn to auto
         foldcolumn = "0",
-        wrap = false,           -- sets vim.opt.wrap
+        cmdheight = 1,
+        wrap = false, -- sets vim.opt.wrap
         tabstop = 4,
         shiftwidth = 4,
         softtabstop = 4,
@@ -22,7 +23,7 @@ return {
         incsearch = true,
         ignorecase = true,
         autowrite = true,
-        confirm = false,
+        confirm = true,
         scrolloff = 15,
         virtualedit = { "block", "onemore" },
         showtabline = 2,
