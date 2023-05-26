@@ -13,7 +13,8 @@ return {
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
     { "jose-elias-alvarez/null-ls.nvim",     enabled = false },
     { "jay-babu/mason-null-ls.nvim",         enabled = false },
-
+    { "nvim-neo-tree/neo-tree.nvim",         enabled = false },
+    { "leoluz/nvim-dap-go",                  enabled = false },
     {
         "ray-x/lsp_signature.nvim",
         event = "BufRead",
