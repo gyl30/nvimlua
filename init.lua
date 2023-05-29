@@ -66,8 +66,14 @@ return {
                         return priority1 > priority2
                     end
                 end
-
-
+                opts.completion = {
+                    keyword_length = 2,
+                }
+                opts.matching = {
+                    disallow_prefix_unmatching = true,
+                    disallow_fuzzy_matching = true,
+                    disallow_partial_matching = true,
+                }
                 opts.sorting = {
                     priority_weight = 1.0,
                     comparators = {
