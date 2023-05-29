@@ -9,7 +9,7 @@ return {
         -- second key is the lefthand side of the map
         -- mappings seen under group name "Buffer"
         ["<space><space>"] = { "%", desc = "go to next" },
-        ["<leader>bD"] = {
+        ["<leader>bD"]     = {
             function()
                 require("astronvim.utils.status").heirline.buffer_picker(
                     function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
@@ -19,12 +19,48 @@ return {
         },
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
-        ["<leader>b"] = { name = "Buffers" },
-        ["<space>e"] = { "<cmd> NvimTreeToggle <CR>", desc = "Toggle nvimtree" },
+        ["<leader>b"]      = { name = "Buffers" },
+        ["<space>e"]       = { "<cmd> NvimTreeToggle <CR>", desc = "Toggle nvimtree" },
+        ["<space>e"]       = { "<cmd> NvimTreeToggle <CR>", desc = "Toggle nvimtree" },
+        ["<leader>fb"]     = false,
+        ["<leader>fC"]     = false,
+        ["<leader>ff"]     = false,
+        ["<leader>fF"]     = false,
+        ["<leader>fn"]     = false,
+        ["<leader>fo"]     = false,
+        ["<leader>fr"]     = false,
+        ["<leader>ft"]     = false,
+        ["<leader>fw"]     = false,
+        ["<leader>fW"]     = false,
+        ["<leader>l"]      = false,
+        ["<leader>lD"]     = false,
+        ["<leader>ls"]     = false,
+        ["<leader>tp"]     = false,
+        ["<leader>th"]     = false,
+        ["<leader>tv"]     = false,
+        ["<F7>"]           = false,
+        ["<C-'>"]          = false,
+        ["<leader>ud"]     = false,
+        ["<leader>ug"]     = false,
+        ["<leader>ui"]     = false,
+        ["<leader>ul"]     = false,
+        ["<leader>uL"]     = false,
+        ["<leader>un"]     = false,
+        ["<leader>uN"]     = false,
+        ["<leader>up"]     = false,
+        ["<leader>us"]     = false,
+        ["<leader>uS"]     = false,
+        ["<leader>ut"]     = false,
+        ["<leader>uu"]     = false,
+        ["<leader>uw"]     = false,
+        ["<leader>uy"]     = false,
+        ["<leader>uh"]     = false,
+        ["<leader>uC"]     = false,
+        ["<leader>ub"]     = false,
     },
     t = {
-        -- setting a mapping to false will disable it
-        -- ["<esc>"] = false,
+        ["<F7>"]  = false,
+        ["<C-'>"] = false,
     },
 
 }
