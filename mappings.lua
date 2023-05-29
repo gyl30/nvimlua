@@ -22,6 +22,7 @@ return {
         ["<leader>b"]      = { name = "Buffers" },
         ["<space>e"]       = { "<cmd> NvimTreeToggle <CR>", desc = "Toggle nvimtree" },
         ["<space>e"]       = { "<cmd> NvimTreeToggle <CR>", desc = "Toggle nvimtree" },
+        ["<leader>h"]      = { "<cmd>Telescope man_pages sections={\"ALL\"}<CR>", desc = "Find help" },
         ["<leader>fb"]     = false,
         ["<leader>fC"]     = false,
         ["<leader>ff"]     = false,
