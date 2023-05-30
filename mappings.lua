@@ -17,6 +17,25 @@ return {
             end,
             desc = "Pick to close",
         },
+        ["<leader>J"]       = {
+            function()
+                vim.cmd([[
+                      normal! mzJ`z
+                      delmarks z
+                  ]])
+            end,
+            desc = "join line",
+        },
+        ["<leader>gJ"]      = {
+            function()
+                vim.cmd([[
+                      normal! mzgJ`z
+                      delmarks z
+                  ]])
+            end,
+            desc = "join visual line",
+        },
+
         ["<localleader>ss"] = {
             function()
                 local cnt = 0
