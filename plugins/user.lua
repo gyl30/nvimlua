@@ -48,8 +48,40 @@ return {
         lazy = true,
         event = "VimEnter",
         config = function()
-            local theme = require "alpha.themes.startify" --or require("alpha.themes.startify")
-            require("alpha").setup(theme.config)
+            local alpha = require("alpha")
+            local startify = require("alpha.themes.startify")
+
+            local function mru_title()
+                return "MRU " .. vim.fn.getcwd()
+            end
+
+            startify.section.mru_cwd.val = {
+                { type = "padding", val = 1 },
+                { type = "text",    val = mru_title, opts = { hl = "SpecialComment", shrink_margin = false } },
+                { type = "padding", val = 1 },
+                {
+                    type = "group",
+                    val = function()
+                        return { startify.mru(0, false, 13) }
+                    end,
+
+                    opts = { shrink_margin = false },
+                },
+            }
+
+            startify.section.mru.val = {
+                { type = "padding", val = 1 },
+                { type = "text",    val = "MRU", opts = { hl = "SpecialComment" } },
+                { type = "padding", val = 1 },
+                {
+                    type = "group",
+                    val = function()
+                        return { startify.mru(13, vim.fn.getcwd()) }
+                    end,
+
+                },
+            }
+            alpha.setup(startify.config)
         end,
     },
 }
