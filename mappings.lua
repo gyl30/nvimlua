@@ -104,6 +104,7 @@ return {
         ["<leader>bd"]      = false,
         ["<leader>bD"]      = false,
         ["<leader>bl"]      = false,
+        ["<leader>f<CR>"]   = false,
     },
     t = {
         ["<F7>"]  = false,

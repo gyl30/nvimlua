@@ -28,11 +28,11 @@ local leaderf_cfg = function()
     --    vim.cmd('silent! unmap<leader>f')
     --   vim.cmd('silent! unmap<leader>b')
     vim.cmd [[
-        nnoremap <silent> <localleader>f :LeaderfFunction<cr>
-        nnoremap <silent> <localleader>m :LeaderfMru<cr>
-        nnoremap <silent> <leader>ff :LeaderfFile<cr>
-        nnoremap <silent> <leader>fh :LeaderfHelp<cr>
-        nnoremap <silent> <leader>fl :LeaderfLine<cr>
+        nnoremap <silent><nowait> <localleader>f :LeaderfFunction<cr>
+        nnoremap <silent><nowait> <localleader>m :LeaderfMru<cr>
+        nnoremap <silent><nowait> <C-p> :LeaderfFile<cr>
+        nnoremap <silent><nowait> <leader>fh :LeaderfHelp<cr>
+        nnoremap <silent><nowait> <leader>fl :LeaderfLine<cr>
     ]]
 end
 
