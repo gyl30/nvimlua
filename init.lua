@@ -75,13 +75,12 @@ return {
                     disallow_partial_matching = true,
                 }
                 opts.sorting = {
-                    priority_weight = 1.0,
+                    priority_weight = 2,
                     comparators = {
                         cmp.config.compare.offset,
                         cmp.config.compare.exact,
-                        kind_comparator(kinds),
-                        require 'clangd_extensions.cmp_scores',
-                        cmp.config.compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
+                        cmp.config.compare.score,
+                        cmp.config.compare.recently_used,
                         cmp.config.compare.kind,
                         cmp.config.compare.sort_text,
                         cmp.config.compare.length,
