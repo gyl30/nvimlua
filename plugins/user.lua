@@ -1,34 +1,15 @@
 return {
     "andweeb/presence.nvim",
-    { "stevearc/aerial.nvim",          enabled = false },
-    { "mfussenegger/nvim-dap",         enabled = false },
-    { "jay-babu/mason-nvim-dap.nvim",  enabled = false },
-    { "rcarriga/nvim-dap-ui",          enabled = false },
-    { "s1n7ax/nvim-window-picker",     enabled = false },
-    { "stevearc/resession.nvim",       enabled = false },
-    { "NMAC427/guess-indent.nvim",     enabled = false },
-    { "famiu/bufdelete.nvim",          enabled = false },
-    { "Shatur/neovim-session-manager", enabled = false },
-    {
-        "lvimuser/lsp-inlayhints.nvim",
-        enabled = true,
-        event = "LspAttach",
-        opts = {},
-        config = function(_, opts)
-            require("lsp-inlayhints").setup(opts)
-            vim.api.nvim_create_autocmd("LspAttach", {
-                group = vim.api.nvim_create_augroup("LspAttach_inlayhints", {}),
-                callback = function(args)
-                    if not (args.data and args.data.client_id) then
-                        return
-                    end
-                    local client = vim.lsp.get_client_by_id(args.data.client_id)
-                    require("lsp-inlayhints").on_attach(client, args.buf)
-                end,
-            })
-        end,
-
-    },
+    { "stevearc/aerial.nvim",                enabled = false },
+    { "mfussenegger/nvim-dap",               enabled = false },
+    { "jay-babu/mason-nvim-dap.nvim",        enabled = false },
+    { "rcarriga/nvim-dap-ui",                enabled = false },
+    { "s1n7ax/nvim-window-picker",           enabled = false },
+    { "stevearc/resession.nvim",             enabled = false },
+    { "NMAC427/guess-indent.nvim",           enabled = false },
+    { "famiu/bufdelete.nvim",                enabled = false },
+    { "Shatur/neovim-session-manager",       enabled = false },
+    { "lvimuser/lsp-inlayhints.nvim",        enabled = false },
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
     { "jose-elias-alvarez/null-ls.nvim",     enabled = false },
     { "jay-babu/mason-null-ls.nvim",         enabled = false },
