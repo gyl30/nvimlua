@@ -9,7 +9,7 @@ local leaderf_cfg = function()
     vim.g.Lf_ShowRelativePath = 0
     vim.g.Lf_UseVersionControlTool = 0
     vim.g.Lf_IgnoreCurrentBufferName = 1
-    vim.g.Lf_PreviewResult = { Function = 0, BufTag = 0 }
+    vim.g.Lf_PreviewResult = { File = 0, Mru = 0, Tag = 0, Function = 0, BufTag = 0, Colorscheme = 0, Line = 0, Rg = 0 }
     vim.g.Lf_StlSeparator = { left = "", right = "", font = "" }
     vim.g.Lf_WildIgnore = {
         dir = { ".git", ".clangd", ".svn", ".hg", ".cache", ".build", ".deps", ".ccls-cache", "build" },
