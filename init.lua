@@ -1,3 +1,28 @@
+local lspkind_comparator = function(conf)
+    local lsp_types = require('cmp.types').lsp
+    return function(entry1, entry2)
+        if entry1.source.name ~= 'nvim_lsp' then
+            if entry2.source.name == 'nvim_lsp' then
+                return false
+            else
+                return nil
+            end
+        end
+        local kind1 = lsp_types.CompletionItemKind[entry1:get_kind()]
+        local kind2 = lsp_types.CompletionItemKind[entry2:get_kind()]
+
+        local priority1 = conf.kind_priority[kind1] or 0
+        local priority2 = conf.kind_priority[kind2] or 0
+        if priority1 == priority2 then
+            return nil
+        end
+        return priority2 < priority1
+    end
+end
+
+local label_comparator = function(entry1, entry2)
+    return entry1.completion_item.label < entry2.completion_item.label
+end
 return {
     -- add new user interface icon
     icons = {
@@ -24,55 +49,15 @@ return {
             -- override the options table that is used in the `require("cmp").setup()` call
             opts = function(_, opts)
                 local cmp = require "cmp"
-                local lsp_types = require('cmp.types').lsp
-                local kinds = {
-                    Class         = { symbol = "", priority = 5 },
-                    Color         = { symbol = "", priority = 5 },
-                    Constant      = { symbol = "", priority = 10 },
-                    Constructor   = { symbol = "", priority = 1 },
-                    Enum          = { symbol = "", priority = 10 },
-                    EnumMember    = { symbol = "", priority = 10 },
-                    Event         = { symbol = "", priority = 10 },
-                    Field         = { symbol = "", priority = 11 },
-                    File          = { symbol = "", priority = 8 },
-                    Folder        = { symbol = "", priority = 8 },
-                    Function      = { symbol = "", priority = 10 },
-                    Interface     = { symbol = "", priority = 1 },
-                    Keyword       = { symbol = "", priority = 2 },
-                    Method        = { symbol = "m", priority = 10 },
-                    Module        = { symbol = "", priority = 5 },
-                    Operator      = { symbol = "", priority = 10 },
-                    Property      = { symbol = "", priority = 11 },
-                    Reference     = { symbol = "", priority = 10 },
-                    Snippet       = { symbol = "", priority = 4 },
-                    Struct        = { symbol = "", priority = 10 },
-                    Text          = { symbol = "", priority = 0 },
-                    TypeParameter = { symbol = "", priority = 1 },
-                    Unit          = { symbol = "", priority = 1 },
-                    Value         = { symbol = "", priority = 1 },
-                    Variable      = { symbol = "", priority = 9 },
-                }
-
-                local kind_comparator = function(symbols)
-                    return function(entry1, entry2)
-                        local kind1 = lsp_types.CompletionItemKind[entry1:get_kind()]
-                        local kind2 = lsp_types.CompletionItemKind[entry2:get_kind()]
-
-                        local priority1 = symbols[kind1]["priority"] or 0
-                        local priority2 = symbols[kind2]["priority"] or 0
-                        if priority1 == priority2 then
-                            return nil
-                        end
-                        return priority1 > priority2
-                    end
-                end
                 opts.completion = {
                     keyword_length = 2,
                 }
                 opts.matching = {
-                    disallow_prefix_unmatching = true,
                     disallow_fuzzy_matching = true,
-                    disallow_partial_matching = true,
+                    disallow_fullfuzzy_matching = true,
+                    disallow_partial_fuzzy_matching = false,
+                    disallow_partial_matching = false,
+                    disallow_prefix_unmatching = true,
                 }
                 opts.sorting = {
                     priority_weight = 2,
@@ -110,12 +95,12 @@ return {
     },
 
     -- Set colorscheme to use
-    -- colorscheme = "astrodark",
+    colorscheme = "astrodark",
     --colorscheme = "catppuccin",
     -- colorscheme = "sonokai",
     --colorscheme = "github-theme",
     -- colorscheme = "everforest",
-    colorscheme = "nightfox",
+    -- colorscheme = "nightfox",
     lsp = {
         config = {
             setup_handlers = {
