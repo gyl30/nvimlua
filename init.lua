@@ -35,18 +35,7 @@ return {
     },
     plugins = {
         {
-            "projekt0n/github-nvim-theme",
-            lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-            priority = 1000, -- make sure to load this before all the other start plugins
-            config = function()
-                require("github-theme").setup {}
-                vim.cmd "colorscheme github_dark"
-            end,
-        },
-        {
-            -- override nvim-cmp plugin
             "hrsh7th/nvim-cmp",
-            -- override the options table that is used in the `require("cmp").setup()` call
             opts = function(_, opts)
                 local cmp = require "cmp"
                 opts.completion = {
@@ -76,31 +65,30 @@ return {
             end,
         },
     },
-    -- Configure AstroNvim updates
     updater = {
-        remote = "origin",     -- remote to use
-        channel = "nightly",   -- "stable" or "nightly"
-        version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-        --    branch = "nightly", -- branch name (NIGHTLY ONLY)
-        commit = nil,          -- commit hash (NIGHTLY ONLY)
-        pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
-        skip_prompts = false,  -- skip prompts about breaking changes
-        show_changelog = true, -- show the changelog after performing an update
-        auto_quit = false,     -- automatically quit the current session after a successful update
-        remotes = {            -- easily add new remotes to track
-            --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
-            --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
-            --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
+        remote = "origin",   
+        channel = "nightly", 
+        version = "latest",  
+        commit = nil,        
+        pin_plugins = nil,   
+        skip_prompts = false,
+        show_changelog = true,
+        auto_quit = false,    
+        remotes = {           
         },
     },
 
-    -- Set colorscheme to use
-    colorscheme = "astrodark",
-    --colorscheme = "catppuccin",
+    -- colorscheme = "astrodark",
+    -- colorscheme = "catppuccin",
     -- colorscheme = "sonokai",
-    --colorscheme = "github-theme",
+    -- colorscheme = "github-theme",
     -- colorscheme = "everforest",
     -- colorscheme = "nightfox",
+    -- colorscheme = "dracula",
+    colorscheme = "vscode",
+    -- colorscheme = "helix",
+    -- colorscheme = "fluoromachine",
+
     lsp = {
         config = {
             setup_handlers = {
@@ -110,54 +98,37 @@ return {
                 capabilities = { offsetEncoding = "utf-8" },
             },
         },
-        -- customize lsp formatting options
         formatting = {
-            -- control auto formatting on save
             format_on_save = {
-                enabled = true,     -- enable or disable format on save globally
-                allow_filetypes = { -- enable format on save for specified filetypes only
+                enabled = true,    
+                allow_filetypes = {
                     "go",
                     "cpp",
                     "lua",
                 },
-                ignore_filetypes = { -- disable format on save for specified filetypes
-                    -- "python",
-                },
+                ignore_filetypes = { },
             },
-            disabled = { -- disable formatting capabilities for the listed language servers
-                -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
-                -- "lua_ls",
-            },
-            timeout_ms = 1000, -- default format timeout
-            -- filter = function(client) -- fully override the default formatting function
-            --   return true
-            -- end
-        },
-        -- enable servers that you already have installed without mason
+            disabled = { },
+            timeout_ms = 1000,
+       },
         servers = {
             "clangd",
             "gopls",
             "lua_ls",
         },
     },
-    -- Configure require("lazy").setup() options
     lazy = {
         defaults = { lazy = true },
         change_detection = {
-            -- automatically check for config file changes and reload the ui
             enabled = false,
             notify = false, -- get a notification when changes are found
         },
         performance = {
             rtp = {
-                -- customize default disabled vim plugins
                 disabled_plugins = { "tohtml", "gzip", "matchit", "zipPlugin", "netrwPlugin", "tarPlugin" },
             },
         },
     },
 
-    -- This function is run last and is a good place to configuring
-    -- augroups/autocommands and custom filetypes also this just pure lua so
-    -- anything that doesn't fit in the normal config locations above can go here
     polish = function() require "user.autocmds" end,
 }
