@@ -11,6 +11,6 @@ return {
     { import = "astrocommunity.pack.cmake" },
     { import = "astrocommunity.pack.bash" },
     { import = "astrocommunity.pack.lua" },
-    { import = "astrocommunity.editing-support.nvim-ts-rainbow2" },
+    { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
     { import = "astrocommunity.completion.codeium-vim" },
 }
